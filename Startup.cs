@@ -26,7 +26,7 @@ namespace Bicicletaria_ploomes
       services.AddScoped<IProductRepository, ProductRepository>();
       services.AddScoped<IUserRepository, UserRepository>();
       services.AddDbContext<DataContext>(options =>
-                           options.UseSqlServer(Configuration.GetConnectionString("Context")));
+                           options.UseSqlServer(Configuration.GetConnectionString("Contexto")));
       services.AddControllers();
       services.AddSwaggerGen(c =>
       {
