@@ -59,7 +59,7 @@ namespace Bicicletaria_ploomes.Controllers
     {
       try
       {
-        if (id <= decimal.Zero)
+        if (id == decimal.Zero)
           return NotFound("Usuário não informado");
 
         return Ok(_userRepositorio.GetById(id));
@@ -71,12 +71,12 @@ namespace Bicicletaria_ploomes.Controllers
     }
 
     [HttpPut]
-    [Route("enable/{id}")]
+    [Route("enable/{id:int}")]
     public async Task<IActionResult> EnableUser(int id)
     {
       try
       {
-        if (id <= decimal.Zero)
+        if (id == decimal.Zero)
           return NotFound("Usuário não informado");
 
         return Ok(_userRepositorio.EnableUser(id));
@@ -88,12 +88,12 @@ namespace Bicicletaria_ploomes.Controllers
     }
 
     [HttpPut]
-    [Route("disable/{id}")]
+    [Route("disable/{id:int}")]
     public async Task<IActionResult> DisableUser(int id)
     {
       try
       {
-        if (id <= decimal.Zero)
+        if (id == decimal.Zero)
           return NotFound("usuário não informado");
 
         return Ok(_userRepositorio.DisableUser(id));
