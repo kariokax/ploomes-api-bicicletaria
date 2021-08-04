@@ -109,7 +109,7 @@ namespace Bicicletaria_ploomes.Controllers
           return BadRequest("Produto não identificado");
 
         _productRepositorio.Delete(product);
-        return Ok();
+        return Ok(new { message = "Produto removido com sucesso" });
       }
       catch (Exception ex)
       {
