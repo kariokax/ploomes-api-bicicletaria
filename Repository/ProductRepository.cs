@@ -29,6 +29,12 @@ namespace Bicicletaria_ploomes.Repository
       _context.SaveChanges();
     }
 
+    public void Delete(Product product)
+    {
+      _context.Product.Remove(product);
+      _context.SaveChanges();
+    }
+
     public Product Get(int id)
     {
       return _context.Product.Where(p => p.Id == id).FirstOrDefault();

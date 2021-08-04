@@ -94,5 +94,27 @@ namespace Bicicletaria_ploomes.Controllers
         return BadRequest(ex.Message);
       }
     }
+
+    [HttpDelete]
+    [Route("{id:int}")]
+    public async Task<IActionResult> DeleteProduct(int id)
+    {
+      try
+      {
+        if (id <= decimal.Zero)
+          return NotFound("Produto não informado");
+
+        var product = _productRepositorio.Get(id);
+        if (product == null)
+          return BadRequest("Produto não identificado");
+
+        _productRepositorio.Delete(product);
+        return Ok();
+      }
+      catch (Exception ex)
+      {
+        return BadRequest(ex.Message);
+      }
+    }
   }
 }

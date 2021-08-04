@@ -21,7 +21,7 @@ namespace Bicicletaria_ploomes.Models
     [Range(1, int.MaxValue, ErrorMessage = "Valor deve ser maior que zero")]
     public decimal Value { get; set; }
 
-    [MaxLength(ErrorMessage = "A descrição deve conter no máximo 1024 caracteres")]
+    [MaxLength(450, ErrorMessage = "A descrição deve conter no máximo 450 caracteres")]
     public string Description { get; set; }
 
     [Required(ErrorMessage = "Por favor, adicione o tamanho do produto")]
