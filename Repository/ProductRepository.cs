@@ -20,12 +20,11 @@ namespace Bicicletaria_ploomes.Repository
       _context.Database.EnsureCreated();
     }
 
-    public void Create(Product product, int userId)
+    public void Create(Product product)
     {
       product.DateCreate = DateTime.Now;
       product.GenerateRecordIdentifier();
 
-      product.CreatorUserId = userId;
       _context.Product.AddRange(product);
       _context.SaveChanges();
     }

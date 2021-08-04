@@ -20,19 +20,19 @@ namespace Bicicletaria_ploomes.Controllers
 
     [HttpPost]
     [Route("create")]
-    public async Task<IActionResult> CreateProduct([FromBody] Product product, int userId)
+    public async Task<IActionResult> CreateProduct([FromBody] Product product)
     {
       try
       {
         if (product == null)
           return NotFound("Produto não informado");
-        if (userId == decimal.Zero)
+        if (product.CreatorUserId == decimal.Zero)
           return NotFound("Usuário não identificado");
 
         if (!ModelState.IsValid)
           return BadRequest(ModelState);
 
-        _productRepositorio.Create(product, userId);
+        _productRepositorio.Create(product);
 
         return Ok(product);
       }
